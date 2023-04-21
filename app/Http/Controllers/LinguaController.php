@@ -54,7 +54,7 @@ class LinguaController extends Controller
     public function menu()
     {
         $email = session('user');
-        $aux = User::where('email', intval($email))->get();
+        $aux = User::where('email', '=', $email)->get();
         $userExistente = $aux[0];
         if (session()->has('user')){
             return view('menu', ['user' => $userExistente]);
